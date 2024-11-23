@@ -1,5 +1,7 @@
 const Product = () => {
-  return <div></div>;
+  return <div>
+    xin chao
+  </div>;
 };
 
 export default Product;
