@@ -8,8 +8,7 @@ const Navbar = () => {
   const { setshowsearch } = useContext(ShopContext);
   return (
     <div className="flex items-center justify-between py-5 font-medium">
-      <Link>
-        {" "}
+      <Link to="/">
         <img src={assets.logo} className="w-10" alt="" />
       </Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
@@ -32,12 +31,14 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center gap-6">
+        <Link to="/store">
         <img
           onClick={() => setshowsearch(true)}
           src={assets.icons8_search}
           className="w-5 cursor-pointer"
           alt=""
         />
+        </Link>
 
         <div className="group relative">
           <img className="w-5 cursor-pointer" src={assets.icons8_user} alt="" />
