@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
+import { useNavigate } from "react-router-dom";
 
 const Store = () => {
   const { products, search, showsearch } = useContext(ShopContext);
@@ -10,6 +11,7 @@ const Store = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [sortOption, setSortOption] = useState("relevant");
+  const naviagte = useNavigate();
 
   useEffect(() => {
     let filteredProducts = [...products];
@@ -64,6 +66,9 @@ const Store = () => {
     setSelectedTypes((prev) =>
       prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
     );
+  };
+  const handleClickItem = (id)=>{
+    naviagte(`/product/${id}`);
   };
 
   return (
@@ -149,7 +154,7 @@ const Store = () => {
 
         {/* Main content */}
         <div className="flex-1">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 ">
             <Title text1="ALL" text2="STORE" />
             <select
               className="px-4 py-2 border border-gray-200 rounded-lg bg-white text-sm"
@@ -168,7 +173,9 @@ const Store = () => {
                 key={item.id}
                 className="bg-white rounded-lg shadow-sm p-4 flex flex-col"
               >
-                <div className="relative pb-[100%] mb-4">
+                <div
+                  onClick={()=>handleClickItem(item.id)} 
+                  className="relative pb-[100%] mb-4 hover:scale-110 transition ease-in-out">
                   <img
                     src={item.image}
                     alt={item.name}
