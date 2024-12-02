@@ -88,10 +88,14 @@ import bin_icon from "./bin_icon.png";
 import dropdown_icon from "./dropdown_icon.png";
 import star_icon from "./star_icon.png";
 import star_dull_icon from "./star_dull_icon.png";
+import vcb from "./vcb.png";
+import momo from "./momo.png";
 import cross_icon from "./cross_icon.png";
 export const assets = {
   cart_icon,
   bin_icon,
+  vcb,
+  momo,
   star_icon,
   star_dull_icon,
   dropdown_icon,
